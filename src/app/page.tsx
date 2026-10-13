@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, ChevronDown, Heart, Sparkles } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
+import LandingMotion from '@/components/LandingMotion';
 import { categories, products } from '@/lib/catalogue';
 
 const homeCats = ['Tablecloths', 'Napkins', 'Chargers', 'Chairs', 'Glassware', 'Tables'];
@@ -19,24 +20,27 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
-        <Image
-          src="/images/ai/hero.webp"
-          alt="Elegant wedding table arrangement with romantic flowers and refined tableware"
-          fill
-          priority
-          unoptimized
-          className="hero-photo"
-          sizes="100vw"
-        />
+      <LandingMotion />
+      <section className="hero impress-hero">
+        <div className="hero-visual" aria-hidden="true">
+          <Image
+            src="/images/ai/hero.webp"
+            alt=""
+            fill
+            priority
+            unoptimized
+            className="hero-photo"
+            sizes="100vw"
+          />
+        </div>
         <div className="hero-tint" />
+        <div className="hero-atmosphere" aria-hidden="true" />
         <div className="hero-content page-container">
           <div className="hero-line">
             <span className="line-decoration" /> IMPRESS LUXURY EVENT RENTALS
           </div>
-          <h1>
-            Elegant pieces for
-            <br />
+          <h1 className="hero-title">
+            Elegant pieces for<br />
             <em>beautiful celebrations.</em>
           </h1>
           <p>

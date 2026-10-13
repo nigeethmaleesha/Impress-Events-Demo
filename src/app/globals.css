@@ -348,3 +348,97 @@ img{max-width:100%}
 @media(prefers-reduced-motion:reduce){.sort-trigger svg,.catalogue-sidebar{transition:none}}
 @media(max-width:1024px){.catalogue-sidebar{width:min(380px,90vw)}}
 @media(min-width:901px) and (max-width:930px){.header{height:auto;min-height:88px}.brandmark-image{height:66px}}
+
+/* =============================================================
+   IMPRESS — CALM HERO MOTION
+   Only photography and ambient visual accents animate.
+   NO hero text, button entry, or on-scroll upward translation.
+   This remains true on initial entry and on client-side navigation back home.
+   ============================================================= */
+.impress-hero{isolation:isolate}
+.impress-hero .hero-visual{
+  position:absolute;
+  inset:-22px;
+  z-index:0;
+  pointer-events:none;
+  transform:translate3d(var(--hero-pointer-x,0px),var(--hero-pointer-y,0px),0);
+  transition:transform 900ms cubic-bezier(.2,.7,.2,1);
+  will-change:transform;
+}
+.impress-hero .hero-photo{
+  object-fit:cover;
+  object-position:center 52%;
+  filter:saturate(.83) brightness(.78) contrast(1.045);
+  animation:impress-cinematic-drift 21s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.impress-hero .hero-tint{
+  z-index:1;
+  background:linear-gradient(90deg,rgba(22,20,19,.75) 0%,rgba(31,28,26,.55) 45%,rgba(31,29,27,.22) 100%),
+    linear-gradient(0deg,rgba(23,19,17,.48),transparent 38%);
+}
+.impress-hero .hero-atmosphere{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:radial-gradient(ellipse 55% 55% at 85% 37%,rgba(254,210,165,.18),transparent 80%);
+  opacity:.38;
+  animation:impress-warm-light 12s ease-in-out infinite alternate;
+}
+.impress-hero .hero-content{z-index:2}
+.impress-hero .hero-title{margin-bottom:19px}
+/* Text, links, and lower sections are immediately visible, with no entrance motion. */
+.impress-hero .hero-line,
+.impress-hero .hero-title,
+.impress-hero .hero-content > p,
+.impress-hero .hero-buttons,
+.impress-hero .hero-bottom > span{
+  animation:none;
+  opacity:1;
+  translate:none;
+}
+/* An understated light pulse replaces the moving text effect. */
+.impress-hero .hero-line .line-decoration{
+  animation:impress-accent-glow 4.5s ease-in-out infinite alternate;
+}
+.impress-hero .hero-bottom > a{
+  animation:impress-scroll-ring 2.8s ease-in-out infinite;
+  transition:background .25s,border-color .25s;
+}
+.impress-hero .hero-bottom > a:hover{
+  background:rgba(255,255,255,.15);
+  border-color:white;
+}
+.impress-hero .hero-buttons .button:active{transform:translateY(0) scale(.98)}
+
+@keyframes impress-cinematic-drift{
+  0%{transform:scale(1.03) translate3d(0,0,0)}
+  100%{transform:scale(1.105) translate3d(-.6%,.2%,0)}
+}
+@keyframes impress-warm-light{
+  from{opacity:.22;transform:translate3d(1.5%,0,0)}
+  to{opacity:.53;transform:translate3d(-1.5%,0,0)}
+}
+@keyframes impress-accent-glow{
+  from{opacity:.45;box-shadow:0 0 0 rgba(255,238,212,0)}
+  to{opacity:1;box-shadow:0 0 7px rgba(255,238,212,.24)}
+}
+@keyframes impress-scroll-ring{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.17)}
+  50%{box-shadow:0 0 0 11px rgba(255,255,255,0)}
+}
+
+@media(max-width:700px){
+  .impress-hero .hero-visual{inset:-16px;transform:none!important}
+  .impress-hero .hero-photo{object-position:55% center;animation-duration:24s}
+  .impress-hero .hero-tint{background:linear-gradient(90deg,rgba(22,20,19,.78),rgba(22,20,19,.39)),linear-gradient(0deg,rgba(24,20,18,.5),transparent 40%)}
+  .impress-hero .hero-atmosphere{opacity:.25}
+}
+@media(prefers-reduced-motion:reduce){
+  .impress-hero .hero-visual{transform:none!important;transition:none!important;will-change:auto}
+  .impress-hero .hero-photo{animation:none!important;transform:none!important;will-change:auto}
+  .impress-hero .hero-atmosphere{animation:none!important;opacity:.3}
+  .impress-hero .hero-line .line-decoration,
+  .impress-hero .hero-bottom > a{animation:none!important}
+}

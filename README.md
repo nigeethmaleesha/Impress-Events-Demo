@@ -101,3 +101,9 @@ The responsive layout has been revised across catalogue, header, home, product d
 The high-quality editorial AI photo set was converted from roughly 21 MB of PNGs to roughly 1.9 MB of WebP assets. These are generic concept visuals, not SKU photographs. See `docs/RESPONSIVE-QA.md`.
 
 **After deploying to Vercel:** check your actual iPhone and Android viewports, select category and sort, close filters with backdrop/close/results, refresh the cart, and submit a test quotation. Full Next.js build and live email delivery must be verified in your project/deployment environment.
+
+## Calm landing page image motion (October 13, 2026)
+
+The homepage retains the elegant cinematic background image drift, warm ambient light, desktop pointer depth effect and gentle scroll-indicator pulse. The headline, paragraph, buttons, and all lower sections remain **fully static and visible** on first load and when returning to Home. No staggered text reveals or upward scroll-entry animations remain. All animated visuals respect `prefers-reduced-motion`.
+
+This update does **not** change the quotation workflow or product catalogue. See `docs/LANDING-ANIMATION-UPDATE.md` for the affected files and verification guidance.
