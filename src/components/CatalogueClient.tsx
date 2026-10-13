@@ -41,7 +41,7 @@ export default function CatalogueClient({
   const sortButtonRef = useRef<HTMLButtonElement>(null);
   const filterCloseRef = useRef<HTMLButtonElement>(null);
   const filterTriggerRef = useRef<HTMLButtonElement>(null);
-  const filterPanelRef = useRef<HTMLAsideElement>(null);
+  const filterPanelRef = useRef<HTMLElement>(null);
 
   const validCat = categories.some((c) => c.name === category) ? category : 'All';
   const filtered = useMemo(() => {
