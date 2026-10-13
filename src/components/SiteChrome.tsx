@@ -28,7 +28,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <>
+    <div className="site-header-shell">
       <div className="announcement">
         ELEVATED RENTALS FOR UNFORGETTABLE OCCASIONS <span>✦</span> ENQUIRE ABOUT YOUR EVENT TODAY
       </div>
@@ -57,7 +57,7 @@ export function Header() {
           <button
             aria-label="Search the rental catalogue"
             className="icon-button"
-            onClick={() => setSearchOpen(!searchOpen)}
+            onClick={() => { setOpen(false); setSearchOpen(!searchOpen); }}
           >
             <Search size={20} strokeWidth={1.5} />
           </button>
@@ -65,7 +65,7 @@ export function Header() {
             <ShoppingBag size={20} strokeWidth={1.5} />
             {hydrated && count > 0 && <span className="cart-count">{count > 99 ? '99+' : count}</span>}
           </Link>
-          <button aria-label="Toggle menu" className="icon-button mobile-menu-button" onClick={() => setOpen(!open)}>
+          <button aria-label="Toggle menu" className="icon-button mobile-menu-button" onClick={() => { setSearchOpen(false); setOpen(!open); }}>
             {open ? <X size={23} /> : <Menu size={23} />}
           </button>
         </div>
@@ -100,7 +100,7 @@ export function Header() {
           </Link>
         </nav>
       )}
-    </>
+    </div>
   );
 }
 

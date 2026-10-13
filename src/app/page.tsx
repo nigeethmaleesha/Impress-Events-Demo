@@ -6,12 +6,12 @@ import { categories, products } from '@/lib/catalogue';
 
 const homeCats = ['Tablecloths', 'Napkins', 'Chargers', 'Chairs', 'Glassware', 'Tables'];
 const galleryImages = [
-  '/images/ai/gallery-01.png',
-  '/images/ai/gallery-02.png',
-  '/images/ai/category-chairs.png',
-  '/images/ai/story.png',
-  '/images/ai/category-tabletop.png',
-  '/images/ai/category-linens.png',
+  '/images/ai/gallery-01.webp',
+  '/images/ai/gallery-02.webp',
+  '/images/ai/category-chairs.webp',
+  '/images/ai/story.webp',
+  '/images/ai/category-tabletop.webp',
+  '/images/ai/category-linens.webp',
 ];
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <section className="hero">
         <Image
-          src="/images/ai/hero.png"
+          src="/images/ai/hero.webp"
           alt="Elegant wedding table arrangement with romantic flowers and refined tableware"
           fill
           priority
@@ -96,7 +96,7 @@ export default function Home() {
         </div>
         <div className="brand-showcase-photo">
           <Image
-            src="/images/ai/gallery-02.png"
+            src="/images/ai/gallery-02.webp"
             alt="Luxury event table styling close-up"
             fill
             unoptimized
@@ -206,7 +206,7 @@ export default function Home() {
       <section className="story-band">
         <div className="story-photo">
           <Image
-            src="/images/ai/story.png"
+            src="/images/ai/story.webp"
             alt="Elegant event seating and floral styling"
             fill
             unoptimized

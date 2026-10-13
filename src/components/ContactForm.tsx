@@ -76,7 +76,7 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="contact-feature-photo">
-            <Image src="/images/ai/gallery-02.png" alt="Beautiful wedding styling and event decor" fill unoptimized sizes="(max-width:800px) 100vw, 450px" />
+            <Image src="/images/ai/gallery-02.webp" alt="Beautiful wedding styling and event decor" fill unoptimized sizes="(max-width:800px) 100vw, 450px" />
           </div>
         </div>
 

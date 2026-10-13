@@ -6,17 +6,17 @@ import { ArrowUpRight } from 'lucide-react';
 export const metadata: Metadata = { title: 'Event Lookbook' };
 
 const lookbookImages = [
-  '/images/ai/gallery-01.png',
-  '/images/ai/story.png',
-  '/images/ai/category-linens.png',
-  '/images/ai/category-tabletop.png',
-  '/images/ai/category-chairs.png',
-  '/images/ai/gallery-02.png',
-  '/images/ai/hero.png',
-  '/images/ai/category-tables.png',
-  '/images/ai/category-napkins.png',
-  '/images/ai/gallery-01.png',
-  '/images/ai/story.png',
+  '/images/ai/gallery-01.webp',
+  '/images/ai/story.webp',
+  '/images/ai/category-linens.webp',
+  '/images/ai/category-tabletop.webp',
+  '/images/ai/category-chairs.webp',
+  '/images/ai/gallery-02.webp',
+  '/images/ai/hero.webp',
+  '/images/ai/category-tables.webp',
+  '/images/ai/category-napkins.webp',
+  '/images/ai/gallery-01.webp',
+  '/images/ai/story.webp',
 ];
 
 export default function Lookbook() {

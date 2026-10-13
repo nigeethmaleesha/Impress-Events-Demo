@@ -35,15 +35,15 @@ These are the newly added assets and documentation files.
 - `public/images/brand/impress-logo.png`
 
 ### New AI concept visuals
-- `public/images/ai/hero.png`
-- `public/images/ai/story.png`
-- `public/images/ai/category-linens.png`
-- `public/images/ai/category-napkins.png`
-- `public/images/ai/category-tabletop.png`
-- `public/images/ai/category-chairs.png`
-- `public/images/ai/category-tables.png`
-- `public/images/ai/gallery-01.png`
-- `public/images/ai/gallery-02.png`
+- `public/images/ai/hero.webp`
+- `public/images/ai/story.webp`
+- `public/images/ai/category-linens.webp`
+- `public/images/ai/category-napkins.webp`
+- `public/images/ai/category-tabletop.webp`
+- `public/images/ai/category-chairs.webp`
+- `public/images/ai/category-tables.webp`
+- `public/images/ai/gallery-01.webp`
+- `public/images/ai/gallery-02.webp`
 
 ### New documentation
 - `docs/2026-10-13-file-breakdown.md`
@@ -74,3 +74,7 @@ These are the newly added assets and documentation files.
 
 ### Result
 - The homepage now presents a more polished luxury-event design using the real brand logo and high-quality imagery instead of relying on a sparse text-heavy layout.
+
+
+## Mobile responsiveness follow-up
+For current changes and responsive testing details, see `docs/RESPONSIVE-QA.md`. The previously generated AI PNG files were replaced by optimized WebP files and obsolete low-resolution screenshot crops were removed.

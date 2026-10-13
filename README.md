@@ -81,14 +81,23 @@ npm run check:catalogue
 
 Original inventory: `docs/original-stock.xlsx`. Products generated from its eight worksheets are in `src/data/products.json`. See `docs/inventory-review.md` for source quirks (duplicate IDs, unverified records, missing codes). Stock counts **are not live date-based availability**, and are not displayed on the site.
 
-Original reference screenshots are **temporary low-resolution design references**. Cropped images in `public/images` are illustrative and should be replaced before launch. **Every product card and product detail explicitly labels category-level visuals rather than falsely claiming that a photograph matches a SKU.** Brand assets, product photography, policy terms and actual rental rates must be supplied/approved by the client.
+Original reference screenshots are **temporary low-resolution design references**. Optimized AI-created WebP visuals in `public/images/ai` are illustrative and should be replaced with client-approved event photography before final launch. **Every product card and product detail explicitly labels category-level visuals rather than falsely claiming that a photograph matches a SKU.** Brand assets, product photography, policy terms and actual rental rates must be supplied/approved by the client.
 
 ## Important design and launch notes
 
-- The supplied Figma URL was **not in the development request**. The current design is original and built from the PDF, spreadsheet, screenshot context and approved rental workflow. Compare/adjust against the Figma link once shared.
+- The supplied Figma file has restricted access through the connected design account. This is an independently designed client-approval prototype based on the PDF, spreadsheet, screenshots and rental workflow. Obtain client approval before treating the design as final.
 - The PDF explicitly **excludes** payment gateways, paid checkout, accounts, automated inventory reservation, live date availability, dynamic delivery charges and custom admin dashboards.
 - The admin workflow is **email**, not a back-office dashboard. The owner replies to the customer via email after reviewing request details.
 - Public page SEO indexing is **disabled** in this approval demo (`robots: noindex`) to avoid temporary mock content being indexed. Enable SEO and configure the correct production site domain on production Shopify.
 - This prototype does **not** store quotations in a database; email is the delivery mechanism. If a persistent audit trail, anti-spam distributed rate limiting, file attachments, invoice generation or dashboard is required, those are separate scoped features.
 - Temporary policy pages are NOT legal documents. The owner must approve the real wording before launch.
 - Production readiness requires test of authenticated SMTP from the deployed Vercel environment, image replacement, legal policy approval, client contact details, and security/traffic testing. A Vercel local build alone does not prove email delivery.
+
+
+## Responsive update (October 13, 2026)
+
+The responsive layout has been revised across catalogue, header, home, product details, lookbook, contact and quotation pages. At phone/tablet widths (up to 1024px), filters open in a scrolling screen-height drawer with a persistent **Show results** button, a close control, Escape handling, focus containment and background scroll locking. The sort control uses an in-page menu instead of the disruptive large native mobile picker. The design also uses min-width-safe grid children, mobile input sizes, flexible action rows and smaller headers at narrow breakpoints.
+
+The high-quality editorial AI photo set was converted from roughly 21 MB of PNGs to roughly 1.9 MB of WebP assets. These are generic concept visuals, not SKU photographs. See `docs/RESPONSIVE-QA.md`.
+
+**After deploying to Vercel:** check your actual iPhone and Android viewports, select category and sort, close filters with backdrop/close/results, refresh the cart, and submit a test quotation. Full Next.js build and live email delivery must be verified in your project/deployment environment.

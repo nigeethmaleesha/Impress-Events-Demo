@@ -20,7 +20,7 @@ export default function About() {
 
       <section className="page-container about-grid section-space">
         <div className="about-photo">
-          <Image src="/images/ai/story.png" alt="Elegant event celebration setting" fill unoptimized sizes="(max-width:800px) 100vw, 50vw" />
+          <Image src="/images/ai/story.webp" alt="Elegant event celebration setting" fill unoptimized sizes="(max-width:800px) 100vw, 50vw" />
         </div>
         <div className="about-content">
           <span className="eyebrow">ABOUT IMPRESS EVENTS</span>
