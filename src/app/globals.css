@@ -686,3 +686,220 @@ button.button{font:inherit}
   .contact-page .contact-map-faq-section { padding-bottom: 80px; }
   .contact-page .contact-map-embed { height: 310px; }
 }
+
+/* ================================================================
+   Mobile-only layout refinements, 2026-10-14 (v13)
+   Scope deliberately limited to <=900px. Desktop remains unchanged.
+   No event handlers, quotation payloads or backend contracts altered.
+   ================================================================ */
+@media (min-width:601px) and (max-width:900px) {
+  .quote-modal-backdrop { padding:12px; }
+  .quote-modal {
+    width:min(760px,100%);
+    max-height:calc(100dvh - 24px);
+    padding:clamp(20px,3vw,30px);
+    overscroll-behavior:contain;
+  }
+  .quote-modal-header h2 { font-size:clamp(31px,4.8vw,39px); }
+  .brand-showcase-logo { width:min(205px,100%); }
+  .about-photo { min-height:400px; }
+  .section-heading h2 { font-size:clamp(36px,4.8vw,48px); }
+}
+
+@media (max-width:700px) {
+  /* Give mobile editorial titles the full width instead of squeezing them
+     beside a CTA; the links sit neatly underneath each title. */
+  .collections-section .section-heading,
+  .feature-section .section-heading,
+  .home-faq-section .section-heading {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:15px;
+    margin-bottom:25px;
+  }
+  .collections-section .section-heading > div,
+  .feature-section .section-heading > div,
+  .home-faq-section .section-heading > div { width:100%;min-width:0; }
+  .collections-section .section-heading h2,
+  .feature-section .section-heading h2,
+  .home-faq-section .section-heading h2 {
+    font-size:clamp(27px,7.2vw,36px);
+    line-height:1.13;
+    letter-spacing:-.04em;
+    margin-top:12px;
+    overflow-wrap:normal;
+  }
+  .feature-section .home-feature-heading { white-space:normal; text-wrap:initial; }
+  .feature-section .home-feature-heading em { display:block; }
+  .home-faq-section .section-heading h2 { font-size:clamp(27px,7vw,34px); }
+  .collections-section .section-heading .text-arrow,
+  .feature-section .section-heading .text-arrow,
+  .home-faq-section .section-heading .text-arrow {
+    align-self:flex-start;
+    max-width:none;
+    margin:0;
+    white-space:nowrap;
+    font-size:10px;
+    line-height:1.4;
+    padding-bottom:8px;
+  }
+  .collections-section { padding-top:62px;padding-bottom:70px; }
+  .feature-section { padding-top:66px;padding-bottom:62px; }
+  .home-faq-section { padding-top:32px;padding-bottom:66px; }
+  .gallery-section { padding-top:60px;padding-bottom:68px; }
+
+  /* Photo boxes should feel intentionally cropped on narrow devices.
+     Balanced two-column tiles and no orphan/blank final grid cells. */
+  .category-grid { gap:10px; }
+  .category-tile { min-height:0;aspect-ratio:1 / 1.09; }
+  .category-overlay { padding:13px; }
+  .category-overlay > span { font-size:7px;letter-spacing:.12em; }
+  .category-overlay h3 { font-size:clamp(19px,5.2vw,25px); }
+  .category-arrow { width:32px;height:32px;flex:0 0 auto; }
+  .category-tile img { object-position:center 46%; }
+  .category-tile:nth-child(3) img { object-position:52% 65%; }
+  .category-tile:nth-child(4) img { object-position:50% 52%; }
+  .feature-section .featured-products { grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px; }
+  .feature-section .product-image-wrap { aspect-ratio:1 / 1.12; }
+  .feature-section .product-image { object-position:50% 50%; }
+  .feature-section .product-meta { margin-top:11px; }
+  .feature-section .product-bottom { flex-wrap:wrap;row-gap:8px; }
+  .gallery-section .gallery-grid { gap:9px;grid-auto-rows:clamp(134px,39vw,190px); }
+  .gallery-section .gallery-item-6 { display:none; }
+  .gallery-section .gallery-item-1 img { object-position:56% center; }
+
+  /* Lookbook has two tall tiles: on mobile the 13th tile left an empty
+     second grid cell. Remove only that extra tile at mobile width. */
+  .lookbook-grid { gap:9px;grid-auto-rows:clamp(145px,42vw,195px);grid-auto-flow:row dense; }
+  .lookbook-grid .lookbook-photo:last-child { display:none; }
+  .lookbook-photo img { object-position:center center; }
+  .lookbook-photo.tall img { object-position:center 45%; }
+  .gallery-caption { font-size:12px;line-height:1.65;margin:20px 0; }
+
+  /* The brand panel had an oversized logo, four-line title and tall image. */
+  .brand-showcase { gap:0; }
+  .brand-showcase-card { min-height:0;padding:26px 20px 30px; }
+  .brand-showcase-logoWrap { margin-bottom:14px; }
+  .brand-showcase-logo { width:min(165px,53vw); }
+  .brand-showcase-copy h2 { font-size:clamp(29px,7.3vw,37px);line-height:1.13;margin:10px 0 15px; }
+  .brand-showcase-copy h2 br { display:none; }
+  .brand-showcase-copy h2 em::before { content:' '; }
+  .brand-showcase-copy p { font-size:13px;line-height:1.75; }
+  .brand-showcase-actions { gap:12px 20px;margin-top:18px; }
+  .brand-showcase-photo { min-height:0;height:clamp(210px,61vw,275px); }
+  .brand-showcase-photo img { object-position:center 65%; }
+
+  /* Long content-page headings use a readable phone scale. */
+  .interior-hero { padding:40px 0 38px;min-height:0; }
+  .interior-hero h1 { font-size:clamp(31px,8.1vw,44px);line-height:1.14; }
+  .about-intro-heading,
+  .contact-details h2,
+  .about-owner-heading h2,
+  .contact-map-card h2,
+  .contact-faq-card h2,
+  .faq-layout h2 {
+    font-size:clamp(30px,7.9vw,38px);
+    line-height:1.13;
+  }
+  .about-photo { min-height:0;height:clamp(240px,75vw,340px); }
+  .about-grid { gap:28px; }
+  .about-owner-heading h2 br { display:none; }
+  .about-owner-heading h2 em::before { content:' '; }
+  .contact-feature-photo { height:clamp(210px,56vw,270px); }
+  .contact-feature-photo img { object-position:center 57%; }
+  .contact-page .contact-map-embed { height:clamp(255px,73vw,315px);min-height:0; }
+  .contact-page .contact-faqs-list summary { font-size:13px;line-height:1.45; }
+  .home-faq-card summary { padding:18px 0;line-height:1.5;font-size:13px; }
+  .home-faq-card p { font-size:13px;line-height:1.7; }
+
+  /* Full-width buttons are easier to tap and don't overflow narrow phones. */
+  .hero-buttons { display:grid;grid-template-columns:minmax(0,1fr);width:min(100%,340px);gap:10px; }
+  .hero-buttons .button,
+  .hero-buttons .hero-quote-button {
+    width:100%;min-width:0;max-width:100%;
+    min-height:49px;justify-content:space-between;white-space:normal;
+    font-size:10px;line-height:1.35;gap:12px;
+  }
+  .hero h1 { font-size:clamp(37px,9.6vw,56px);line-height:1.05; }
+  .hero-content > p { font-size:13px;line-height:1.55; }
+}
+
+@media (max-width:600px) {
+  /* Quotation modal: a properly scrolling, viewport-filling mobile sheet.
+     This targets ONLY the shared homepage/cart quotation popup. */
+  .quote-modal-backdrop {
+    padding:0;
+    align-items:stretch;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .quote-modal {
+    width:100%;max-width:100%;height:100vh;height:100dvh;
+    max-height:100vh;max-height:100dvh;
+    min-height:0;margin:0;border:0;
+    padding:20px clamp(16px,4.6vw,24px) calc(26px + env(safe-area-inset-bottom,0px));
+    overflow-y:auto;overflow-x:hidden;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-padding-top:16px;
+    border-radius:0;
+  }
+  .quote-modal-header { gap:12px;margin-bottom:18px;align-items:flex-start; }
+  .quote-modal-header > div { min-width:0;flex:1; }
+  .quote-modal-header .eyebrow { font-size:9px;letter-spacing:.13em; }
+  .quote-modal-header h2 {
+    font-size:clamp(27px,7.1vw,34px);
+    letter-spacing:-.04em;line-height:1.12;
+    margin:9px 0 10px;
+    overflow-wrap:normal;
+  }
+  .quote-modal-header p { font-size:12px;line-height:1.55; }
+  .quote-modal-close { width:44px;height:44px;min-width:44px;flex:0 0 44px; }
+  .quote-modal-summary { padding:13px 14px;margin-bottom:21px;font-size:12px;line-height:1.55; }
+  .quote-modal-form .step-label { gap:10px;font-size:10px;letter-spacing:.07em;padding-bottom:14px; }
+  .quote-modal-form .step-label span { width:31px;height:31px;flex:0 0 31px; }
+  .quote-modal-form .next-step { margin-top:30px; }
+  .quote-modal-form .form-grid { grid-template-columns:minmax(0,1fr);gap:16px;margin-top:18px; }
+  .quote-modal-form .form-field.full { grid-column:1 / -1; }
+  .quote-modal-form .form-field { gap:7px; }
+  .quote-modal-form .form-field > span { font-size:12px; }
+  .quote-modal-form .form-field input,
+  .quote-modal-form .form-field select,
+  .quote-modal-form .form-field textarea {
+    display:block;width:100%;max-width:100%;min-width:0;
+    min-height:49px;font-size:16px;line-height:1.4;
+    padding:12px 13px;
+    border-radius:0;
+  }
+  .quote-modal-form .form-field input[type='date'] { -webkit-appearance:none;appearance:none;min-width:0; }
+  .quote-modal-form .form-field textarea { min-height:118px;resize:vertical; }
+  .quote-modal-form .form-reminder { margin-top:21px;padding:14px; }
+  .quote-modal-form .form-reminder p { font-size:12px;line-height:1.5; }
+  .quote-modal-form .quote-modal-actions {
+    display:grid;grid-template-columns:minmax(0,1fr);
+    gap:10px;margin-top:18px;align-items:stretch;
+  }
+  .quote-modal-form .quote-modal-actions > .button {
+    width:100%;height:auto;min-height:52px;margin:0;
+    padding:13px 12px;font-size:11px;letter-spacing:.07em;
+    line-height:1.35;white-space:normal;
+    justify-content:center;gap:9px;
+  }
+  .quote-modal-success { min-height:0;padding:10px 0 25px; }
+  .quote-modal-success h3 { font-size:clamp(29px,7.4vw,38px); }
+  .quote-modal-success .confirmation-reference { max-width:100%; }
+}
+
+@media (max-width:360px) {
+  .collections-section .section-heading h2,
+  .feature-section .section-heading h2,
+  .home-faq-section .section-heading h2 { font-size:26px; }
+  .brand-showcase-copy h2 { font-size:28px; }
+  .category-overlay { padding:10px; }
+  .category-overlay h3 { font-size:18px; }
+  .gallery-section .gallery-grid { grid-auto-rows:130px; }
+  .lookbook-grid { grid-auto-rows:138px; }
+  .footer-top { gap:24px 14px; }
+}
