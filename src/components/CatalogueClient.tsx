@@ -142,19 +142,6 @@ export default function CatalogueClient({
 
   return (
     <>
-      <section className="interior-hero">
-        <div className="page-container">
-          <span className="eyebrow">THE IMPRESS COLLECTION</span>
-          <h1>
-            Consider every <em>detail.</em>
-          </h1>
-          <p>
-            Discover everything you need to bring your unique celebration to life. Select the pieces you love and
-            request a personal quotation.
-          </p>
-        </div>
-      </section>
-
       <div className="page-container catalogue-area">
         <div className="catalogue-toolbar">
           <div className="catalogue-breadcrumb">

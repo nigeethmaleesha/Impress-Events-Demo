@@ -6,17 +6,19 @@ import { ArrowUpRight } from 'lucide-react';
 export const metadata: Metadata = { title: 'Event Lookbook' };
 
 const lookbookImages = [
-  '/images/ai/gallery-01.webp',
-  '/images/ai/story.webp',
-  '/images/ai/category-linens.webp',
-  '/images/ai/category-tabletop.webp',
-  '/images/ai/category-chairs.webp',
-  '/images/ai/gallery-02.webp',
-  '/images/ai/hero.webp',
-  '/images/ai/category-tables.webp',
-  '/images/ai/category-napkins.webp',
-  '/images/ai/gallery-01.webp',
-  '/images/ai/story.webp',
+  '/images/client-home/hero-event-table.jpg',
+  '/images/client-home/chair-ceremony.jpg',
+  '/images/client-home/tablecloth-setting.jpg',
+  '/images/client-home/charger-place-setting.jpg',
+  '/images/client-home/outdoor-aisle.jpg',
+  '/images/client-home/soft-table.jpg',
+  '/images/client-home/blush-table-detail.jpg',
+  '/images/client-home/wedding-exit.jpg',
+  '/images/client-home/neutral-place-setting.jpg',
+  '/images/client-home/warm-dining.jpg',
+  '/images/client-home/brand-showcase-event.jpg',
+  '/images/client-home/romantic-florals.jpg',
+  '/images/client-home/glassware-table.jpg',
 ];
 
 export default function Lookbook() {
@@ -26,7 +28,7 @@ export default function Lookbook() {
         <div className="page-container">
           <span className="eyebrow">THE IMPRESS LOOKBOOK</span>
           <h1>
-            Gather inspiration. <em>Create magic.</em>
+            Gather Inspiration. <em>Create Magic.</em>
           </h1>
           <p>A curated moodboard of tablescapes, gatherings and beautifully styled celebrations.</p>
         </div>
@@ -47,12 +49,11 @@ export default function Lookbook() {
           ))}
         </div>
         <p className="gallery-caption">
-          High-quality AI concept imagery is used for the demo lookbook while approved final event photography is being
-          prepared.
+          A curated selection of natural event photography to help you explore the style, details and atmosphere behind the Impress collection.
         </p>
         <div className="center-action">
           <Link href="/rentals" className="button button-dark">
-            Explore the rental collection <ArrowUpRight size={17} />
+            Explore The Rental Collection <ArrowUpRight size={17} />
           </Link>
         </div>
       </section>

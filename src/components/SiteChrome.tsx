@@ -11,7 +11,6 @@ const links = [
   { href: '/rentals', title: 'Rentals' },
   { href: '/lookbook', title: 'Lookbook' },
   { href: '/about', title: 'Our Story' },
-  { href: '/faq', title: 'FAQs' },
   { href: '/contact', title: 'Contact' },
 ];
 
@@ -29,11 +28,8 @@ export function Header() {
 
   return (
     <div className="site-header-shell">
-      <div className="announcement">
-        ELEVATED RENTALS FOR UNFORGETTABLE OCCASIONS <span>✦</span> ENQUIRE ABOUT YOUR EVENT TODAY
-      </div>
       <header className="header">
-        <Link href="/" className="brandmark" aria-label="Impress Events home">
+        <Link href="/" className="brandmark" aria-label="Impress Events Home">
           <Image
             src="/images/brand/impress-logo.png"
             alt="Impress Luxury Event Rentals"
@@ -57,7 +53,10 @@ export function Header() {
           <button
             aria-label="Search the rental catalogue"
             className="icon-button"
-            onClick={() => { setOpen(false); setSearchOpen(!searchOpen); }}
+            onClick={() => {
+              setOpen(false);
+              setSearchOpen(!searchOpen);
+            }}
           >
             <Search size={20} strokeWidth={1.5} />
           </button>
@@ -65,7 +64,14 @@ export function Header() {
             <ShoppingBag size={20} strokeWidth={1.5} />
             {hydrated && count > 0 && <span className="cart-count">{count > 99 ? '99+' : count}</span>}
           </Link>
-          <button aria-label="Toggle menu" className="icon-button mobile-menu-button" onClick={() => { setSearchOpen(false); setOpen(!open); }}>
+          <button
+            aria-label="Toggle menu"
+            className="icon-button mobile-menu-button"
+            onClick={() => {
+              setSearchOpen(false);
+              setOpen(!open);
+            }}
+          >
             {open ? <X size={23} /> : <Menu size={23} />}
           </button>
         </div>
@@ -96,7 +102,7 @@ export function Header() {
             </Link>
           ))}
           <Link href="/quote" className="mobile-quote">
-            Your quote cart ({count})
+            Your Quote Cart ({count})
           </Link>
         </nav>
       )}
@@ -109,9 +115,9 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top page-container">
         <div className="footer-brand">
-          <Link href="/" className="footer-logo-link" aria-label="Impress Events home">
+          <Link href="/" className="footer-logo-link" aria-label="Impress Events Home">
             <Image
-              src="/images/brand/impress-logo.png"
+              src="/images/brand/impress-logo-white.png"
               alt="Impress Luxury Event Rentals"
               width={170}
               height={128}
@@ -120,18 +126,17 @@ export function Footer() {
             />
           </Link>
           <p>
-            A thoughtfully curated collection of event essentials, chosen to make your celebrations distinctly
-            memorable.
+            A thoughtfully curated collection of event essentials, chosen to make your celebrations distinctly memorable.
           </p>
           <div className="footer-status">
-            <span className="little-star">✳</span> Designed for beautiful moments.
+            <span className="little-star">✳</span> Designed For Beautiful Moments.
           </div>
         </div>
 
         <div className="footer-col">
           <h4>Explore</h4>
-          <Link href="/rentals">All rentals</Link>
-          <Link href="/rentals?category=Tablecloths">Table linen</Link>
+          <Link href="/rentals">All Rentals</Link>
+          <Link href="/rentals?category=Tablecloths">Table Linen</Link>
           <Link href="/rentals?category=Chargers">Tabletop</Link>
           <Link href="/rentals?category=Chairs">Furniture</Link>
           <Link href="/lookbook">Lookbook</Link>
@@ -139,29 +144,28 @@ export function Footer() {
 
         <div className="footer-col">
           <h4>Information</h4>
-          <Link href="/about">Our story</Link>
-          <Link href="/contact">Get in touch</Link>
-          <Link href="/faq">Frequently asked questions</Link>
-          <Link href="/policies/privacy">Privacy policy</Link>
-          <Link href="/policies/rental">Rental policy</Link>
-          <Link href="/policies/terms">Terms & conditions</Link>
-          <Link href="/policies/cancellation">Cancellation & damages</Link>
+          <Link href="/about">Our Story</Link>
+          <Link href="/contact">Get In Touch</Link>
+          <Link href="/faq">Frequently Asked Questions</Link>
+          <Link href="/policies/privacy">Privacy Policy</Link>
+          <Link href="/policies/rental">Rental Policy</Link>
+          <Link href="/policies/terms">Terms & Conditions</Link>
+          <Link href="/policies/cancellation">Cancellation & Damages</Link>
         </div>
 
         <div className="footer-col footer-message">
-          <h4>Let&apos;s create something beautiful.</h4>
+          <h4>Let&apos;s Create Something Beautiful.</h4>
           <p>
             Planning a wedding or an event? Tell us what you need and we&apos;ll help you take the next step.
           </p>
           <Link href="/rentals" className="text-arrow light">
-            Explore the collection <ArrowRight size={17} />
+            Explore The Collection <ArrowRight size={17} />
           </Link>
         </div>
       </div>
 
       <div className="footer-bottom page-container">
-        <span>© {new Date().getFullYear()} Impress Events. All rights reserved.</span>
-        <span>Wedding & event rental enquiries • No online checkout</span>
+        <span>© {new Date().getFullYear()} Impress Events. All Rights Reserved.</span>
       </div>
     </footer>
   );

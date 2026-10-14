@@ -1,31 +1,46 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, ChevronDown, Heart, Sparkles } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, ArrowUpRight, ChevronDown, Heart } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import LandingMotion from '@/components/LandingMotion';
+import QuoteRequestModal from '@/components/QuoteRequestModal';
+import { faqs } from '@/data/faqs';
 import { categories, products } from '@/lib/catalogue';
 
 const homeCats = ['Tablecloths', 'Napkins', 'Chargers', 'Chairs', 'Glassware', 'Tables'];
 const galleryImages = [
-  '/images/ai/gallery-01.webp',
-  '/images/ai/gallery-02.webp',
-  '/images/ai/category-chairs.webp',
-  '/images/ai/story.webp',
-  '/images/ai/category-tabletop.webp',
-  '/images/ai/category-linens.webp',
+  '/images/client-home/luxury-hall.png',
+  '/images/client-home/wedding-exit.jpg',
+  '/images/client-home/outdoor-aisle.jpg',
+  '/images/client-home/blush-table-detail.jpg',
+  '/images/client-home/chair-ceremony.jpg',
+  '/images/client-home/brand-showcase-event.jpg',
+];
+const featuredVisuals = [
+  '/images/client-home/luxury-hall.png',
+  '/images/client-home/hero-event-table.jpg',
+  '/images/client-home/brand-showcase-event.jpg',
+  '/images/client-home/tablecloth-setting.jpg',
 ];
 
 export default function Home() {
-  const featured = products.filter((p) => p.featured).slice(0, 8);
+  const featured = products.filter((p) => p.featured).slice(0, 4);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const homeFaqs = faqs.slice(0, 4);
 
   return (
     <>
       <LandingMotion />
+      <QuoteRequestModal open={quoteOpen} onClose={() => setQuoteOpen(false)} />
+
       <section className="hero impress-hero">
         <div className="hero-visual" aria-hidden="true">
           <Image
-            src="/images/ai/hero.webp"
-            alt=""
+            src="/images/client-home/hero-event-table.jpg"
+            alt="Natural luxury event table styling with florals, candlelight and elegant place settings"
             fill
             priority
             unoptimized
@@ -37,31 +52,30 @@ export default function Home() {
         <div className="hero-atmosphere" aria-hidden="true" />
         <div className="hero-content page-container">
           <div className="hero-line">
-            <span className="line-decoration" /> IMPRESS LUXURY EVENT RENTALS
+            <span className="line-decoration" /> Impress Luxury Event Rentals
           </div>
           <h1 className="hero-title">
-            Elegant pieces for<br />
-            <em>beautiful celebrations.</em>
+            Elegant Pieces For<br />
+            <em>Beautiful Celebrations.</em>
           </h1>
           <p>
-            Discover a curated wedding and event rental collection styled to make every table, toast and moment feel
-            unforgettable.
+            Discover a curated wedding and event rental collection styled to make every table, toast and moment feel unforgettable.
           </p>
           <div className="hero-buttons">
             <Link href="/rentals" className="button button-cream">
-              Explore our collection <ArrowUpRight size={17} />
+              Explore Our Collection <ArrowUpRight size={17} />
             </Link>
-            <Link href="/quote" className="button button-outline-light">
-              Request a quotation <ArrowRight size={17} />
-            </Link>
+            <button type="button" className="button button-outline-light hero-quote-button" onClick={() => setQuoteOpen(true)}>
+              Request A Quotation <ArrowRight size={17} />
+            </button>
           </div>
         </div>
         <div className="hero-bottom page-container">
-          <span>WEDDINGS · EVENTS · TABLESCAPES · RENTALS</span>
+          <span>Weddings · Events · Tablescapes · Rentals</span>
           <a href="#brand-intro" aria-label="Scroll to brand introduction">
             <ChevronDown size={20} />
           </a>
-          <span>DESIGNED TO IMPRESS</span>
+          <span>Designed To Impress</span>
         </div>
       </section>
 
@@ -70,7 +84,7 @@ export default function Home() {
           <div className="brand-showcase-logoWrap">
             <Image
               src="/images/brand/impress-logo.png"
-              alt="Impress Luxury Event Rentals logo"
+              alt="Impress Luxury Event Rentals Logo"
               width={270}
               height={205}
               unoptimized
@@ -78,30 +92,29 @@ export default function Home() {
             />
           </div>
           <div className="brand-showcase-copy">
-            <span className="eyebrow">THE IMPRESS PHILOSOPHY</span>
+            <span className="eyebrow">The Impress Philosophy</span>
             <h2>
-              For moments that deserve
+              For Moments That Deserve
               <br />
-              <em>something extraordinary.</em>
+              <em>Something Extraordinary.</em>
             </h2>
             <p>
-              We believe the little details create the biggest memories. From elegant chairs and refined linens to
-              statement tabletop pieces, our collection is designed to elevate every celebration.
+              We believe the little details create the biggest memories. From elegant chairs and refined linens to statement tabletop pieces, our collection is designed to elevate every celebration.
             </p>
             <div className="brand-showcase-actions">
               <Link href="/about" className="text-arrow">
-                Learn our story <ArrowUpRight size={18} />
+                Learn Our Story <ArrowUpRight size={18} />
               </Link>
               <Link href="/lookbook" className="text-arrow subtle-link">
-                View the lookbook <ArrowUpRight size={18} />
+                View The Lookbook <ArrowUpRight size={18} />
               </Link>
             </div>
           </div>
         </div>
         <div className="brand-showcase-photo">
           <Image
-            src="/images/ai/gallery-02.webp"
-            alt="Luxury event table styling close-up"
+            src="/images/client-home/brand-showcase-event.jpg"
+            alt="Natural indoor event setup with chandeliers and floral styling"
             fill
             unoptimized
             sizes="(max-width:850px) 100vw, 42vw"
@@ -113,15 +126,15 @@ export default function Home() {
         <div className="page-container">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">DISCOVER THE COLLECTION</span>
+              <span className="eyebrow">Discover The Collection</span>
               <h2>
-                Beautiful pieces,
+                Beautiful Pieces,
                 <br />
-                <em>beautifully curated.</em>
+                <em>Beautifully Curated.</em>
               </h2>
             </div>
             <Link className="text-arrow" href="/rentals">
-              View all rentals <ArrowUpRight size={18} />
+              View All Rentals <ArrowUpRight size={18} />
             </Link>
           </div>
           <div className="category-grid">
@@ -135,13 +148,13 @@ export default function Home() {
                 >
                   <Image
                     src={c.image}
-                    alt={`${name} editorial category visual`}
+                    alt={`${name} rental category photo`}
                     fill
                     unoptimized
                     sizes="(max-width:700px) 50vw, (max-width:1000px) 33vw, 25vw"
                   />
                   <div className="category-overlay">
-                    <span>0{i + 1} / THE COLLECTION</span>
+                    <span>0{i + 1} / The Collection</span>
                     <div>
                       <h3>{name}</h3>
                       <span className="category-arrow">
@@ -159,30 +172,57 @@ export default function Home() {
       <section className="feature-section section-space page-container">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">OUR MOST-LOVED PIECES</span>
-            <h2>
-              A little inspiration
-              <br />
-              <em>for your next event.</em>
+            <span className="eyebrow">Our Most-Loved Pieces</span>
+            <h2 className="home-feature-heading">
+              A Little Inspiration <em>For Your Next Event.</em>
             </h2>
           </div>
           <Link href="/rentals" className="text-arrow">
-            Explore all pieces <ArrowUpRight size={18} />
+            Explore All Pieces <ArrowUpRight size={18} />
           </Link>
         </div>
-        <div className="featured-products">{featured.map((p) => <ProductCard key={p.id} product={p} />)}</div>
-        <p className="image-caveat">
-          High-quality concept photography is used across the demo to present the brand beautifully while final
-          item-by-item product images are being prepared.
-        </p>
+        <div className="featured-products">
+          {featured.map((p, index) => (
+            <ProductCard
+              key={p.id}
+              product={p}
+              visualSrc={featuredVisuals[index % featuredVisuals.length]}
+              visualAlt={`${p.title} styled in a natural event setting`}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="home-faq-section section-space page-container">
+        <div className="section-heading faq-preview-heading">
+          <div>
+            <span className="eyebrow">Helpful Questions</span>
+            <h2>
+              Planning Support,
+              <br />
+              <em>Right When You Need It.</em>
+            </h2>
+          </div>
+          <Link href="/faq" className="text-arrow">
+            View All FAQs <ArrowUpRight size={18} />
+          </Link>
+        </div>
+        <div className="home-faq-grid">
+          {homeFaqs.map((faq, index) => (
+            <details key={faq.q} className="home-faq-card" open={index === 0}>
+              <summary>
+                {faq.q}
+                <span>+</span>
+              </summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
       </section>
 
       <section className="gallery-section section-space page-container">
-        <div className="center-kicker">
-          <Sparkles size={14} /> MOMENTS IN THE MAKING <Sparkles size={14} />
-        </div>
         <h2 className="center-heading">
-          A world of <em>inspiration.</em>
+          A World Of <em>Inspiration.</em>
         </h2>
         <p className="center-intro">
           Editorial-style visuals to show the mood, texture and feeling behind the Impress Events experience.
@@ -192,7 +232,7 @@ export default function Home() {
             <div key={src + index} className={`gallery-item gallery-item-${index + 1}`}>
               <Image
                 src={src}
-                alt={`Wedding event styling inspiration ${index + 1}`}
+                alt={`Real event styling inspiration ${index + 1}`}
                 fill
                 unoptimized
                 sizes="(max-width:700px) 50vw, 33vw"
@@ -202,78 +242,23 @@ export default function Home() {
         </div>
         <div className="center-action">
           <Link href="/lookbook" className="button button-outline-dark">
-            Visit our lookbook <ArrowUpRight size={17} />
+            Visit Our Lookbook <ArrowUpRight size={17} />
           </Link>
-        </div>
-      </section>
-
-      <section className="story-band">
-        <div className="story-photo">
-          <Image
-            src="/images/ai/story.webp"
-            alt="Elegant event seating and floral styling"
-            fill
-            unoptimized
-            sizes="(max-width:850px) 100vw, 50vw"
-          />
-        </div>
-        <div className="story-copy">
-          <span className="eyebrow">CURATED WITH INTENTION</span>
-          <h2>
-            More than rentals.
-            <br />
-            <em>A feeling.</em>
-          </h2>
-          <p>
-            From the first thoughtful detail to the final finishing touch, we believe beautifully styled spaces have the
-            power to bring people together.
-          </p>
-          <p>
-            Our collection brings together table linens, dining essentials, furniture and finishing touches for your most
-            meaningful occasions.
-          </p>
-          <Link className="button button-dark" href="/about">
-            Get to know us <ArrowUpRight size={17} />
-          </Link>
-          <span className="large-outline-mark">IE</span>
-        </div>
-      </section>
-
-      <section className="how-section section-space">
-        <div className="page-container">
-          <div className="center-kicker">AS SIMPLE AS ONE, TWO, THREE</div>
-          <h2 className="center-heading">
-            Your vision, <em>our details.</em>
-          </h2>
-          <div className="how-grid">
-            {[
-              { n: '01', title: 'Discover', desc: 'Browse our collection and choose the pieces that fit your vision.' },
-              { n: '02', title: 'Select', desc: 'Choose your favourite items, options and quantities for the event.' },
-              { n: '03', title: 'Request', desc: 'Send your event details and receive a tailored quotation by email.' },
-            ].map((x) => (
-              <div className="how-card" key={x.n}>
-                <span>{x.n}</span>
-                <h3>{x.title}</h3>
-                <p>{x.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="how-note">Submitting a quote request does not reserve items or confirm a booking.</p>
         </div>
       </section>
 
       <section className="final-cta">
         <Heart size={24} strokeWidth={1.2} />
-        <span className="eyebrow">LET'S MAKE IT MEMORABLE</span>
+        <span className="eyebrow">Let&apos;s Make It Memorable</span>
         <h2>
-          Something beautiful
+          Something Beautiful
           <br />
-          <em>starts here.</em>
+          <em>Starts Here.</em>
         </h2>
         <p>Share your event details and let us help bring it to life.</p>
-        <Link href="/rentals" className="button button-cream">
-          Start your quotation <ArrowUpRight size={17} />
-        </Link>
+        <button type="button" className="button button-cream" onClick={() => setQuoteOpen(true)}>
+          Start Your Quotation <ArrowUpRight size={17} />
+        </button>
       </section>
     </>
   );

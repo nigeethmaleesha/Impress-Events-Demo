@@ -3,6 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Mail, MessageCircle, AlertCircle } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
+import { faqs } from '@/data/faqs';
+
+const contactFaqs = faqs.slice(4);
+const mapAddress = 'Impress Wedding Planner & Dance Studio, 185 f Kottawa Rd, Pannipitiya 10240';
+const mapEmbed = 'https://www.google.com/maps?q=' + encodeURIComponent(mapAddress) + '&z=15&output=embed';
 
 export default function ContactForm() {
   const [data, setData] = useState({ name: '', email: '', subject: 'General enquiry', message: '', website: '' });
@@ -35,24 +40,14 @@ export default function ContactForm() {
   }
 
   return (
-    <>
-      <section className="interior-hero">
-        <div className="page-container">
-          <span className="eyebrow">WE'D LOVE TO HEAR FROM YOU</span>
-          <h1>
-            Let&apos;s make it <em>beautiful.</em>
-          </h1>
-          <p>Questions, ideas or special requests? We&apos;re just a message away.</p>
-        </div>
-      </section>
-
-      <section className="contact-grid page-container section-space">
+    <div className="contact-page">
+      <section className="contact-grid page-container section-space contact-page-start">
         <div className="contact-details">
           <span className="eyebrow">GET IN TOUCH</span>
           <h2>
-            Tell us about
+            Tell Us About
             <br />
-            <em>your occasion.</em>
+            <em>Your Occasion.</em>
           </h2>
           <p>
             Whether you&apos;re planning a wedding, a private celebration or a corporate event, share a little about what you
@@ -61,22 +56,28 @@ export default function ContactForm() {
           <div className="contact-icon-text">
             <MessageCircle size={22} />
             <div>
-              <b>Planning an event?</b>
+              <b>Planning An Event?</b>
               <p>Start by browsing the rental collection, then send a quotation request with the pieces you love.</p>
               <Link className="text-arrow" href="/rentals">
-                Explore rentals <ArrowRight size={15} />
+                Explore Rentals <ArrowRight size={15} />
               </Link>
             </div>
           </div>
           <div className="contact-icon-text">
             <Mail size={22} />
             <div>
-              <b>General enquiries</b>
+              <b>General Enquiries</b>
               <p>Use the form to reach our team directly. Business contact details will be added when supplied by the client.</p>
             </div>
           </div>
           <div className="contact-feature-photo">
-            <Image src="/images/ai/gallery-02.webp" alt="Beautiful wedding styling and event decor" fill unoptimized sizes="(max-width:800px) 100vw, 450px" />
+            <Image
+              src="/images/client-home/brand-showcase-event.jpg"
+              alt="Elegant event styling with glassware and floral table decor"
+              fill
+              unoptimized
+              sizes="(max-width:800px) 100vw, 450px"
+            />
           </div>
         </div>
 
@@ -84,22 +85,22 @@ export default function ContactForm() {
           {success ? (
             <div className="contact-success">
               <CheckCircle2 size={40} />
-              <h3>Message sent successfully.</h3>
+              <h3>Message Sent Successfully.</h3>
               <p>Thank you for getting in touch. Our team will review your enquiry and reply to your email.</p>
               <button className="text-arrow" onClick={() => setSuccess(false)}>
-                Send another message <ArrowRight size={16} />
+                Send Another Message <ArrowRight size={16} />
               </button>
             </div>
           ) : (
             <form onSubmit={send} className="contact-form">
               <span className="eyebrow">SEND US A MESSAGE</span>
-              <h3>We&apos;re listening.</h3>
+              <h3>We&apos;re Listening.</h3>
               <label className="form-field">
-                <span>Your full name *</span>
+                <span>Your Full Name *</span>
                 <input value={data.name} onChange={(e) => change('name', e.target.value)} required minLength={2} placeholder="Full name" maxLength={120} />
               </label>
               <label className="form-field">
-                <span>Your email *</span>
+                <span>Your Email *</span>
                 <input type="email" value={data.email} onChange={(e) => change('email', e.target.value)} required placeholder="Email address" maxLength={180} />
               </label>
               <label className="form-field">
@@ -132,7 +133,7 @@ export default function ContactForm() {
                   'Sending…'
                 ) : (
                   <>
-                    Send enquiry <ArrowRight size={17} />
+                    Send Enquiry <ArrowRight size={17} />
                   </>
                 )}
               </button>
@@ -140,6 +141,31 @@ export default function ContactForm() {
           )}
         </div>
       </section>
-    </>
+
+      <section className="page-container contact-map-faq-section" aria-label="Location Map And Frequently Asked Questions">
+        <div className="contact-map-faq-grid">
+          <div className="contact-map-embed">
+            <iframe
+              src={mapEmbed}
+              title="Google Maps Location: Impress Wedding Planner & Dance Studio, 185 f Kottawa Rd, Pannipitiya 10240"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+          <div className="faqs contact-faqs-list" aria-label="More Frequently Asked Questions">
+            {contactFaqs.map((faq, index) => (
+              <details key={faq.q} open={index === 0}>
+                <summary>
+                  {faq.q}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
